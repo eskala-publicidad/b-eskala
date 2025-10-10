@@ -1,0 +1,82 @@
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body{ height:100%; }
+body{
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	color: #fff;
+	background: #000;
+}
+
+.contact-page{ position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.bg-video{ position:absolute; top:50%; left:50%; width:auto; height:120%; min-width:100%; min-height:100%; transform:translate(-50%,-50%); object-fit:cover; z-index:0; filter:brightness(0.6) contrast(1.05); }
+.overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45)); z-index:1; }
+
+.header{ position:absolute; top:24px; left:24px; z-index:4; }
+.logo{ width:120px; height:auto; display:block; filter:drop-shadow(0 4px 14px rgba(0,0,0,0.6)); }
+
+.card{ z-index:2; width:min(900px, 94%); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15)); border-radius:14px; padding:36px; text-align:center; backdrop-filter: blur(6px); box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+.card h1{ font-size:2.1rem; letter-spacing:1px; margin-bottom:6px; }
+.subtitle{ color: #e6e6e6; opacity:0.9; margin-bottom:20px; }
+
+.buttons{ display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:14px; }
+
+.btn{ position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:6px; padding:18px 20px; border-radius:10px; background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); color:#fff; text-decoration:none; overflow:hidden; transition: transform .12s ease, box-shadow .12s ease; border:1px solid rgba(255,255,255,0.06); }
+.btn .label{ font-weight:600; font-size:1rem; }
+.btn small{ color: #d6d6d6; font-size:.85rem; }
+
+.btn:active, .btn.pressed{ transform: translateY(2px) scale(.996); box-shadow: 0 6px 18px rgba(0,0,0,0.55) inset; }
+
+/* Linea luminosa */
+.btn .light{ position:absolute; top:0; left:-120%; width:40%; height:120%; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%); transform: skewX(-20deg); opacity:0; transition: left .6s cubic-bezier(.2,.9,.2,1), opacity .35s; pointer-events:none; }
+.btn:hover .light{ left:120%; opacity:1; }
+
+/* Foco accesible */
+.btn:focus{ outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
+
+.card-footer{ margin-top:18px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.03); }
+.everywhere{ font-weight:700; letter-spacing:1.6px; color:#ffd; margin-bottom:6px; }
+.copyright{ font-size:.85rem; color:#d0d0d0; }
+
+/* Responsive tweaks */
+@media (max-width:520px){
+	.logo{ width:96px; }
+	.card{ padding:20px; }
+	.btn{ padding:14px; }
+}
+
+/* Small animation for header and card entrance */
+@keyframes fadeUp { from{ transform: translateY(10px); opacity:0 } to{ transform:none; opacity:1 } }
+.card{ animation: fadeUp .6s ease both; }
+
+/* Utility: hide video on very small connections if needed */
+@media (prefers-reduced-motion: reduce){
+	.bg-video{ display:none; }
+	.btn .light{ display:none; }
+	.card{ animation:none; }
+}
+
+#hero {
+    min-height: 100vh;
+    position:relative;
+}
+
+video {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;;
+}
+
+
+.capa {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #1c1c1d;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+}
