@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	if(yearEl) yearEl.textContent = new Date().getFullYear();
 
 	// Animación de presionar botones: añadir clase .pressed en touchstart/mousedown y remover después
-	var buttons = Array.prototype.slice.call(document.querySelectorAll('.btn'));
+	var buttons = Array.prototype.slice.call(document.querySelectorAll('.btn, .btn-review'));
 	buttons.forEach(function(btn){
 		if(!btn) return;
 
