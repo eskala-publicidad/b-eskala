@@ -1,0 +1,17 @@
+<!-- Inserta en el <head> de cada HTML -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="/styles/responsive.css">
+<script defer src="/scripts/menu.js"></script>
+
+<!-- Ejemplo mínimo de nav (pon esto dentro del <body>) -->
+<header class="container">
+  <nav class="nav" aria-label="Main">
+    <div class="brand">MiMarca</div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">☰ <span class="sr-only">Abrir menú</span></button>
+    <div id="main-menu" class="menu" role="menubar">
+      <a role="menuitem" href="/">Inicio</a>
+      <a role="menuitem" href="/servicios">Servicios</a>
+      <a role="menuitem" href="/contacto">Contacto</a>
+    </div>
+  </nav>
+</header>

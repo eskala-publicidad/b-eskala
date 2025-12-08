@@ -1,0 +1,121 @@
+/* CSS responsivo móvil-primero */
+/* Coloca este archivo en /styles/responsive.css y enlázalo en tus HTML */
+
+:root{
+  --max-width: 1200px;
+  --gap: 1rem;
+  --bg: #ffffff;
+  --text: #222;
+  --accent: #0d6efd;
+  --radius: 8px;
+  --container-padding: 1rem;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+ul[role="list"], ol[role="list"] { list-style: none; padding: 0; margin: 0; }
+img, picture, video { max-width: 100%; display: block; height: auto; }
+
+/* Base */
+html { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; font-size: 100%; color: var(--text); background: var(--bg); line-height: 1.4; }
+body { min-height: 100vh; }
+
+/* Contenedor centrado fluido */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Grid responsivo: tarjetas/columnas se adaptan */
+.row {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Tipografía fluida */
+h1 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); margin-bottom: .5rem; }
+h2 { font-size: clamp(1.25rem, 2.6vw, 1.8rem); margin-bottom: .5rem; }
+p  { font-size: clamp(0.95rem, 1.4vw, 1rem); margin-bottom: .75rem; }
+
+/* Imágenes y multimedia */
+.media {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Navegación: mobile-first */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .75rem 0;
+}
+.nav .brand { font-weight: 700; color: var(--accent); }
+.nav .menu-toggle {
+  background: transparent;
+  border: 0;
+  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.nav .menu {
+  display: none; /* oculto en móvil, se muestra en pantallas grandes */
+  gap: 1rem;
+  align-items: center;
+}
+.nav .menu a {
+  text-decoration: none;
+  color: var(--text);
+  padding: .5rem;
+  border-radius: 6px;
+}
+.nav .menu a:hover { background: rgba(13,110,253,0.08); }
+
+/* Menú abierto (clase que añade JS) */
+.menu--open { display: flex; flex-direction: column; gap: .25rem; margin-top: .5rem; }
+
+/* Tarjeta de ejemplo */
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: .75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Utilidades */
+.text-center { text-align: center; }
+.hide-mobile { display: none; } /* visible solo en desktop */
+.show-mobile { display: block; }
+
+/* Breakpoints (desktop) */
+@media (min-width: 768px) {
+  .nav { padding: 1rem 0; }
+  .nav .menu { display: flex; flex-direction: row; }
+  .menu--open { display: flex; flex-direction: row; margin-top: 0; }
+  .hide-mobile { display: block; }
+  .show-mobile { display: none; }
+}
+
+/* Breakpoint grande */
+@media (min-width: 1024px) {
+  :root { --container-padding: 2rem; }
+}
+
+/* Accesibilidad: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
