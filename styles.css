@@ -10,7 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    height: 10vh;
     background-image: url(nombre.gif);
     background-position: center;
     background-size: cover;
